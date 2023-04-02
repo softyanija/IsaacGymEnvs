@@ -28,6 +28,7 @@
 
 
 from .ant import Ant
+from .ramiel import Ramiel
 from .anymal import Anymal
 from .anymal_terrain import AnymalTerrain
 from .ball_balance import BallBalance
@@ -51,6 +52,7 @@ from .trifinger import Trifinger
 isaacgym_task_map = {
     "AllegroHand": AllegroHand,
     "Ant": Ant,
+    "Ramiel": Ramiel,
     "Anymal": Anymal,
     "AnymalTerrain": AnymalTerrain,
     "BallBalance": BallBalance,
