@@ -1,4 +1,4 @@
-g<mujoco model="humanoid_horizontal">
+<mujoco model="humanoid_horizontal">
 
   <statistic extent="2" center="0 0 1"/>
 

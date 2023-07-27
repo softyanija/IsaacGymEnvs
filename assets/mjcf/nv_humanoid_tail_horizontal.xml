@@ -1,4 +1,4 @@
-g<mujoco model="humanoid_horizontal">
+<mujoco model="humanoid_horizontal">
 
   <statistic extent="2" center="0 0 1"/>
 
@@ -57,17 +57,16 @@ g<mujoco model="humanoid_horizontal">
           <geom name="butt" fromto="-.02 -.07 0 -.02 .07 0" size=".09"/>
           <site name="butt" class="touch" size=".091 .07" pos="-.02 0 0" zaxis="0 1 0"/>
           <body name="tail" pos="-0.12 0 0">
-            <joint name="tail_1_z" pos="0.0 0 0" axis="0 0 1" range="-60 60" class="small_joint"/>
+            <joint name="tail_1_y" pos="0.0 0 0" axis="0 1 0" range="-60 60" class="small_joint"/>
             <geom name="tail_1" fromto="-.15 0 0 .0  .0 0" size=".04"/>
             <site name="tail_1" class="touch" pos=".035 -.03 0" size=".03 .11" zaxis="21 -2 0"/>
             <body name="tail_2" pos="-0.15 0 0">
-              <joint name="tail_2_z" pos="0.0 0 0" axis="0 0 1" range="-60 60" class="small_joint"/>
+              <joint name="tail_2_y" pos="0.0 0 0" axis="0 1 0" range="-60 60" class="small_joint"/>
               <geom name="tail_2" fromto="-.15 0 0 .0  .0 0" size=".04"/>
               <site name="tail_2" class="touch" pos=".035 -.03 0" size=".03 .11" zaxis="21 -2 0"/>
               <body name="tail_3" pos="-0.15 0 0">
-                <joint name="tail_3_z" pos="0.0 0 0" axis="0 0 1" range="-60 60" class="small_joint"/>
+                <joint name="tail_3_y" pos="0.0 0 0" axis="0 1 0" range="-60 60" class="small_joint"/>
                 <geom name="tail_3" fromto="-.15 0 0 .0  .0 0" size=".04"/>
-                <!-- <inertial pos="0.00 0 0" mass="9.83" diaginertia="0.22 0.22 0.43"/> -->
                 <site name="tail_3" class="touch" pos=".035 -.03 0" size=".03 .11" zaxis="21 -2 0"/>
               </body>
             </body>
@@ -161,9 +160,9 @@ g<mujoco model="humanoid_horizontal">
     <motor name='right_hip_x'     gear='45.0' joint='right_hip_x'/>
     <motor name='right_hip_z'     gear='45.0' joint='right_hip_z'/>
     <motor name='right_hip_y'     gear='135.0' joint='right_hip_y'/>
-    <motor name='tail_1_z'        gear='90.0' joint='tail_1_z'/>
-    <motor name='tail_2_z'        gear='90.0' joint='tail_2_z'/>
-    <motor name='tail_3_z'        gear='90.0' joint='tail_3_z'/>
+    <motor name='tail_1_y'        gear='90.0' joint='tail_1_y'/>
+    <motor name='tail_2_y'        gear='90.0' joint='tail_2_y'/>
+    <motor name='tail_3_y'        gear='90.0' joint='tail_3_y'/>
     <motor name='right_knee'      gear='90.0' joint='right_knee'/>
     <motor name='right_ankle_x'   gear='22.5' joint='right_ankle_x'/>
     <motor name='right_ankle_y'   gear='22.5' joint='right_ankle_y'/>

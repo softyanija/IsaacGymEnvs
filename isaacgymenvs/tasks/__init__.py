@@ -41,6 +41,8 @@ from .factory.factory_task_nut_bolt_screw import FactoryTaskNutBoltScrew
 from .franka_cabinet import FrankaCabinet
 from .franka_cube_stack import FrankaCubeStack
 from .humanoid import Humanoid
+from .humanoid_tail_horizontal import HumanoidTailHorizontal
+from .humanoid_tail_doubleaxis import HumanoidTailDoubleAxis
 from .humanoid_amp import HumanoidAMP
 from .ingenuity import Ingenuity
 from .quadcopter import Quadcopter
@@ -65,6 +67,8 @@ isaacgym_task_map = {
     "FrankaCabinet": FrankaCabinet,
     "FrankaCubeStack": FrankaCubeStack,
     "Humanoid": Humanoid,
+    "HumanoidTailHorizontal": HumanoidTailHorizontal,
+    "HumanoidTailDoubleAxis": HumanoidTailDoubleAxis,
     "HumanoidAMP": HumanoidAMP,
     "Ingenuity": Ingenuity,
     "Quadcopter": Quadcopter,
