@@ -64,6 +64,8 @@ class HumanoidTailDoubleAxis(VecTask):
 
         self.max_episode_length = self.cfg["env"]["episodeLength"]
 
+        #self.vel_log = torch
+
         self.cfg["env"]["numObservations"] = 132
         self.cfg["env"]["numActions"] = 27
 
@@ -365,13 +367,16 @@ def compute_humanoid_reward(
     total_reward = progress_reward + alive_reward + up_reward + heading_reward - \
         actions_cost_scale * actions_cost - energy_cost_scale * electricity_cost - dof_at_limit_cost
 
+    #print(obs_buf[:,1:4])
+    
+
     # adjust reward for fallen agents
     total_reward = torch.where(obs_buf[:, 0] < termination_height, torch.ones_like(total_reward) * death_cost, total_reward)
 
     # reset agents
     reset = torch.where(obs_buf[:, 0] < termination_height, torch.ones_like(reset_buf), reset_buf)
     reset = torch.where(progress_buf >= max_episode_length - 1, torch.ones_like(reset_buf), reset)
-
+    
     return total_reward, reset
 
 
