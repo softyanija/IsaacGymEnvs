@@ -29,6 +29,8 @@
 import numpy as np
 import os
 import torch
+from torch import Tensor
+from typing import Tuple
 
 from isaacgym import gymtorch
 from isaacgym import gymapi
@@ -235,6 +237,10 @@ class Humanoid(VecTask):
             self.death_cost,
             self.max_episode_length
         )
+        #print(self.obs_buf[0, 1:4])
+        #print(self.obs_buf[0, 11])
+        print(self.dof_limits_lower[0], self.dof_limits_upper[0], self.dof_pos[0,0])
+        #print(self.rew_buf[:])
 
     def compute_observations(self):
         self.gym.refresh_dof_state_tensor(self.sim)
@@ -338,7 +344,7 @@ def compute_humanoid_reward(
     termination_height,
     death_cost,
     max_episode_length
-):
+) -> Tuple[Tensor,Tensor,Tensor]:
     # type: (Tensor, Tensor, Tensor, Tensor, float, float, Tensor, Tensor, float, float, float, float, Tensor, float, float, float) -> Tuple[Tensor, Tensor]
 
     # reward from the direction headed
@@ -368,6 +374,8 @@ def compute_humanoid_reward(
     # adjust reward for fallen agents
     total_reward = torch.where(obs_buf[:, 0] < termination_height, torch.ones_like(total_reward) * death_cost, total_reward)
 
+    #print(obs_buf[:,1:4])
+    
     # reset agents
     reset = torch.where(obs_buf[:, 0] < termination_height, torch.ones_like(reset_buf), reset_buf)
     reset = torch.where(progress_buf >= max_episode_length - 1, torch.ones_like(reset_buf), reset)

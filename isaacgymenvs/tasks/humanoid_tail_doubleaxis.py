@@ -237,6 +237,9 @@ class HumanoidTailDoubleAxis(VecTask):
             self.death_cost,
             self.max_episode_length
         )
+        #print(self.obs_buf[0,1:4])
+        #print(self.obs_buf[0,11])
+        print(self.dof_limits_lower[0], self.dof_limits_upper[0], self.dof_pos[0,0])
 
     def compute_observations(self):
         self.gym.refresh_dof_state_tensor(self.sim)

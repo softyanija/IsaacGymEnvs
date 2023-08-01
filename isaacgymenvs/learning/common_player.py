@@ -138,6 +138,7 @@ class CommonPlayer(players.PpoPlayerContinuous):
                             print('reward:', cur_rewards/done_count, 'steps:', cur_steps/done_count, 'w:', game_res)
                         else:
                             print('reward:', cur_rewards/done_count, 'steps:', cur_steps/done_count)
+                            print("hoge")
 
                     sum_game_res += game_res
                     if batch_size//self.num_agents == 1 or games_played >= n_games:
